@@ -23,7 +23,7 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
     'vue/max-attributes-per-line': ['error', {
       singleline: {
-        max: 2,
+        max: 5,
       },
       multiline: {
         max: 2,
