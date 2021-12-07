@@ -25,8 +25,8 @@ export default {
     const $sesion = useSesion()
     const $router = useRouter()
 
-    const nombre = ref('santi')
-    const contraseña = ref('ar4ecom')
+    const nombre = ref('')
+    const contraseña = ref('')
 
     const login = handle(async () => {
       await $sesion.login({ nombre: nombre.value, contraseña: contraseña.value })
