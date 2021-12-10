@@ -1,0 +1,44 @@
+
+/* ----- flex ----- */
+
+.flex {
+  --flex-gap: var(--space-300);
+
+  display: flex;
+  gap: var(--flex-gap);
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+/* ----- justify ----- */
+
+.justify-end {
+  justify-content: end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* ----- align ----- */
+
+.align-center {
+  align-items: center;
+}
+
+/* ----- justify-self ----- */
+
+.justify-self-start {
+  justify-self: start;
+}

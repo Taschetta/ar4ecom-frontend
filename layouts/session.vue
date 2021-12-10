@@ -2,9 +2,7 @@
   <div id="app" class="app-container bg-pattern-dotted">
     <header class="app-header">
       <h1 class="text-600 text-center">
-        <nuxt-link to="/">
-          ar4ecom
-        </nuxt-link>
+        ar4ecom
       </h1>
     </header>
     <NotificationList />

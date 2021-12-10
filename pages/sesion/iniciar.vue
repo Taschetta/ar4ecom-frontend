@@ -1,14 +1,16 @@
 <template>
-  <main>
-    <h2>Iniciar Sesión</h2>
-    <form id="FormLogin" @submit.prevent="login">
+  <main class="card">
+    <h2 class="text-500 text-center">
+      Iniciar Sesión
+    </h2>
+    <form id="FormLogin" class="form" @submit.prevent="login">
       <label for="InputNombre">Nombre</label>
       <input id="InputNombre" v-model="nombre" type="text">
       <label for="InputContraseña">Contraseña</label>
       <input id="InputContraseña" v-model="contraseña" type="password">
     </form>
-    <nav>
-      <button form="FormLogin">
+    <nav class="flex justify-center">
+      <button class="button" form="FormLogin">
         Iniciar Sesión
       </button>
     </nav>
@@ -19,6 +21,7 @@
 import { useSesion, useHandler } from '~/composition/index.js'
 
 export default {
+  layout: 'session',
   setup () {
     const { handle } = useHandler()
 

@@ -1,0 +1,202 @@
+
+:root {
+
+  /* ----- Font families ------ */
+
+  --font-family-main: Arial, Helvetica, sans-serif;
+
+  /* ----- Font sizes ----- */
+  
+  --font-size-50: 0.875rem;
+  --font-size-100: 1rem;
+  --font-size-200: 1.125rem;
+  --font-size-300: 1.25rem;
+  --font-size-400: 1.5rem;
+  --font-size-500: 1.875rem;
+  --font-size-600: 2.25rem;
+  --font-size-700: 3rem;
+  --font-size-800: 3.75rem;
+  --font-size-900: 4.5rem;
+  --font-size-1000: 6rem;
+
+  /* ----- Line heights ----- */
+
+  --line-height-50: 1.25rem;
+  --line-height-100: 1.5rem;
+  --line-height-200: 1.75rem;
+  --line-height-300: 1.75rem;
+  --line-height-400: 2rem;
+  --line-height-500: 2.25rem;
+  --line-height-600: 2.5rem;
+  --line-height-700: 1;
+  --line-height-800: 1;
+  --line-height-900: 1;
+  --line-height-1000: 1;
+
+  /* ----- Spacing ----- */
+  
+  --space-900: 96px;
+  --space-800: 64px;
+  --space-700: 48px;
+  --space-600: 32px;
+  --space-500: 24px;
+  --space-400: 16px;
+  --space-300: 12px;
+  --space-200: 8px;
+  --space-100: 4px;
+
+    /* ----- Shadows ----- */
+
+  /* --- Outer --- */
+  
+  --shadow-500: 
+    0 20px 40px hsla(221, 39%, 11%, .5);
+  
+  --shadow-400: 
+    0 15px 25px hsla(221, 39%, 11%, .15), 
+    0 5px 10px hsla(221, 39%, 11%, .5);
+  
+  --shadow-300: 
+    0 10px 20px hsla(221, 39%, 11%, .15), 
+    0 3px 6px hsla(221, 39%, 11%, .10);
+
+  --shadow-200: 
+    0 3px 6px hsla(221, 39%, 11%, .15),   
+    0 2px 4px hsla(221, 39%, 11%, .12); 
+  
+  --shadow-100: 
+    0 1px 3px hsla(221, 39%, 11%, .12), 
+    0 1px 2px hsla(221, 39%, 11%, .24);
+
+  /* --- Inner --- */
+
+  --shadow-inner-500: 
+    inset 0 20px 40px hsla(221, 39%, 11%, .5);
+  
+  --shadow-inner-400: 
+    inset 0 15px 25px hsla(221, 39%, 11%, .15), 
+    inset 0 5px 10px hsla(221, 39%, 11%, .5);
+  
+  --shadow-inner-300: 
+    inset 0 10px 20px hsla(221, 39%, 11%, .15), 
+    inset 0 3px 6px hsla(221, 39%, 11%, .10);
+
+  --shadow-inner-200: 
+    inset 0 3px 6px hsla(221, 39%, 11%, .15),   
+    inset 0 2px 4px hsla(221, 39%, 11%, .12); 
+  
+  --shadow-inner-100: 
+    inset 0 1px 3px hsla(221, 39%, 11%, .12), 
+    inset 0 1px 2px hsla(221, 39%, 11%, .24);
+
+  /* -----  */
+
+  --rounded-000: 0px;
+  --rounded-100: 0.125rem;
+  --rounded-200: 0.25rem;
+  --rounded-300: 0.375rem;
+  --rounded-400: 0.5rem;
+  --rounded-500: 0.75rem;
+  --rounded-600: 1rem;
+  --rounded-700: 1.5rem;
+  --rounded-800: 9999px;
+
+  /* ----- Colors ----- */
+  
+  /* --- Slate --- */
+
+  --clr-slate-100: #F1F5F9;
+  --clr-slate-200: #E2E8F0;
+  --clr-slate-300: #CBD5E1;
+  --clr-slate-400: #94A3B8;
+  --clr-slate-500: #64748B;
+  --clr-slate-600: #475569;
+  --clr-slate-700: #334155;
+  --clr-slate-800: #1E293B;
+  --clr-slate-900: #0F172A;
+
+  /* --- Gray --- */
+
+  --clr-gray-900: hsla(215, 27.9%, 16.9%, 1);
+  --clr-gray-800: hsla(217, 19.1%, 26.7%, 1);
+  --clr-gray-700: hsla(215, 13.8%, 34.1%, 1);
+  --clr-gray-600: hsla(220, 8.9%, 46.1%, 1);
+  --clr-gray-500: hsla(218, 10.6%, 64.9%, 1);
+  --clr-gray-400: hsla(216, 12.2%, 83.9%, 1);
+  --clr-gray-300: hsla(220, 13%, 91%, 1);
+  --clr-gray-200: hsla(220, 14.3%, 95.9%, 1);
+  --clr-gray-100: hsla(210, 20%, 98%, 1);
+
+  /* --- Zinc --- */
+
+  --clr-zinc-100: #F4F4F5;
+  --clr-zinc-200: #E4E4E7;
+  --clr-zinc-300: #D4D4D8;
+  --clr-zinc-400: #A1A1AA;
+  --clr-zinc-500: #71717A;
+  --clr-zinc-600: #52525B;
+  --clr-zinc-700: #3F3F46;
+  --clr-zinc-800: #27272A;
+  --clr-zinc-900: #18181B;
+
+  /* --- Neutral --- */
+
+  --clr-neutral-100: #F5F5F5;
+  --clr-neutral-200: #E5E5E5;
+  --clr-neutral-300: #D4D4D4;
+  --clr-neutral-400: #A3A3A3;
+  --clr-neutral-500: #737373;
+  --clr-neutral-600: #525252;
+  --clr-neutral-700: #404040;
+  --clr-neutral-800: #262626;
+  --clr-neutral-900: #171717;
+
+  /* --- Stone --- */
+
+  --clr-stone-100: #F5F5F4;
+  --clr-stone-200: #E7E5E4;
+  --clr-stone-300: #D6D3D1;
+  --clr-stone-400: #A8A29E;
+  --clr-stone-500: #78716C;
+  --clr-stone-600: #57534E;
+  --clr-stone-700: #44403C;
+  --clr-stone-800: #292524;
+  --clr-stone-900: #1C1917;
+
+  /* --- Red --- */
+
+  --clr-red-100: #FEE2E2;
+  --clr-red-200: #FECACA;
+  --clr-red-300: #FCA5A5;
+  --clr-red-400: #F87171;
+  --clr-red-500: #EF4444;
+  --clr-red-600: #DC2626;
+  --clr-red-700: #B91C1C;
+  --clr-red-800: #991B1B;
+  --clr-red-900: #7F1D1D;
+
+  /* --- Lime --- */
+
+  --clr-lime-100: #ECFCCB;
+  --clr-lime-200: #D9F99D;
+  --clr-lime-300: #BEF264;
+  --clr-lime-400: #A3E635;
+  --clr-lime-500: #84CC16;
+  --clr-lime-600: #65A30D;
+  --clr-lime-700: #4D7C0F;
+  --clr-lime-800: #3F6212;
+  --clr-lime-900: #365314;
+
+  /* --- Rose --- */
+
+  --clr-rose-100: #FFE4E6;
+  --clr-rose-200: #FECDD3;
+  --clr-rose-300: #FDA4AF;
+  --clr-rose-400: #FB7185;
+  --clr-rose-500: #F43F5E;
+  --clr-rose-600: #E11D48;
+  --clr-rose-700: #BE123C;
+  --clr-rose-800: #9F1239;
+  --clr-rose-900: #881337;
+  
+}

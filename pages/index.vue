@@ -1,6 +1,8 @@
 <template>
-  <main>
-    <h2>Bienvenido a ar4ecom!</h2>
+  <main class="card">
+    <h2 class="text-500 text-center">
+      Bienvenido a ar4ecom!
+    </h2>
   </main>
 </template>
 

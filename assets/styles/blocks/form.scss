@@ -1,0 +1,30 @@
+
+.form {
+  
+  font-size: var(--font-size-200);
+  line-height: var(--line-height-200);
+  
+  > * {
+    display: block;
+  }
+
+  > * + label {
+    margin-top: var(--space-400);
+  }
+
+  input, select {
+    padding: var(--space-100) var(--space-200);
+    margin-top: var(--space-200);
+    width: 100%;
+    border: 1px solid var(--clr-gray-500);
+    border-radius: var(--rounded-200);
+    box-shadow: var(--shadow-inner-100);
+  }
+
+  input:focus {
+    outline: 3px solid var(--clr-gray-500);
+    outline-offset: 3px;
+  }
+
+}
+

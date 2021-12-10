@@ -1,0 +1,32 @@
+
+.stack > * + * {
+  margin-top: var(--stack-space, var(--space-100));
+}
+
+.stack-900 > * + * {
+  --stack-space: var(--space-900);
+}
+.stack-800 > * + * {
+  --stack-space: var(--space-800);
+}
+.stack-700 > * + * {
+  --stack-space: var(--space-700);
+}
+.stack-600 > * + * {
+  --stack-space: var(--space-600);
+}
+.stack-500 > * + * {
+  --stack-space: var(--space-500);
+}
+.stack-400 > * + * {
+  --stack-space: var(--space-400);
+}
+.stack-300 > * + * {
+  --stack-space: var(--space-300);
+}
+.stack-200 > * + * {
+  --stack-space: var(--space-200);
+}
+.stack-100 > * + * {
+  --stack-space: var(--space-100);
+}

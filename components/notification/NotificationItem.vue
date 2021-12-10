@@ -1,10 +1,11 @@
 <template>
-  <article class="notification">
+  <article class="notification card card-small" @click="remove(id)">
     <p>{{ message }}</p>
   </article>
 </template>
 
 <script>
+import { useNotification } from '~/composition/index.js'
 export default {
   props: {
     id: {
@@ -16,15 +17,30 @@ export default {
       required: true,
     },
   },
+  setup () {
+    const { remove } = useNotification()
+    return {
+      remove,
+    }
+  },
 }
 </script>
 
-<style>
+<style lang="scss">
 
 .notification {
-  /* max-width: 40ch; */
-  /* max-height: 80vh; */
+  // Size
+  max-width: 40ch;
+  max-height: 80vh;
   overflow-y: auto;
+  // Other
+  cursor: pointer;
+
+  transition: all 250ms ease;
+}
+
+.notification + .notification {
+  margin-top: var(--space-300);
 }
 
 </style>

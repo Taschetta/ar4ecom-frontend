@@ -1,3 +1,31 @@
 
+// Configuration
+@import './config/index.scss';
+
 // Reset default styles
 @import './reset/index.scss';
+
+#app {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-100);
+  line-height: var(--line-height-100);
+  color: var(--clr-gray-800);
+}
+
+// Utilities
+@import './utilities/flex.scss';
+@import './utilities/stack.scss';
+@import './utilities/text.scss';
+
+// Design Tokens
+@import './tokens/text.scss';
+@import './tokens/patterns.scss';
+
+// Blocks
+@import './blocks/button.scss';
+@import './blocks/card.scss';
+@import './blocks/form.scss';

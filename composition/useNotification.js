@@ -24,10 +24,9 @@ export const useNotification = () => {
   const insert = ({ message } = {}) => {
     const id = last.value?.id + 1 || 1
     state.items.push({ id, message })
-    setTimeout(() => remove({ id }), state.duration)
   }
 
-  const remove = ({ id }) => {
+  const remove = (id) => {
     const index = findIndex(id)
     if (index !== -1) {
       state.items.splice(index, 1)

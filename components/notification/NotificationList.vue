@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 
 .notifications-container {
   position: fixed;
@@ -33,17 +33,13 @@ export default {
   z-index: 100000;
 }
 
-.notification + .notification {
-  /* margin-top: 1em; */
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: transform 350ms ease-out, opacity 350ms ease-out;
-}
-
 .fade-enter, .fade-leave-to {
-  transform: translateX(-100%);
   opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-leave-active {
+  position: absolute;
 }
 
 </style>
