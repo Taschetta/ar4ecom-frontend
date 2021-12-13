@@ -1,0 +1,17 @@
+
+.link {
+  display: inline-block;
+  padding: var(--space-200) var(--space-200);  
+  color: var(--clr-gray-800);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--rounded-400);
+  text-decoration: underline;
+  transition: background-color 300ms ease;
+  cursor: pointer;
+}
+
+.link:focus {
+  outline: none;
+  background-color: var(--clr-gray-300);
+}

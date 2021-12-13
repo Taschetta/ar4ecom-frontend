@@ -1,5 +1,5 @@
 <template>
-  <main class="card">
+  <main class="card center stack stack-500">
     <h2 class="text-500 text-center">
       Iniciar Sesión
     </h2>
@@ -13,7 +13,7 @@
       <button class="button" form="FormLogin">
         Iniciar Sesión
       </button>
-      <nuxt-link to="/usuario/registrar">
+      <nuxt-link class="link" to="/usuario/registrar">
         Registrarme
       </nuxt-link>
     </nav>

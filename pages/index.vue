@@ -1,16 +1,19 @@
 <template>
-  <main class="card stack stack-500">
+  <main class="card center stack stack-500">
     <h2 class="text-500 text-center">
       Bienvenido a ar4ecom!
     </h2>
     <article class="stack stack-200">
       <h3 class="text-400">
-        Mis datos
+        Mis perfil
       </h3>
       <nav>
-        <nuxt-link to="/usuario">
+        <nuxt-link to="/usuario" class="link">
           Editar
         </nuxt-link>
+        <button to="/usuario" class="link" @click="logout">
+          Cerrar sesión
+        </button>
       </nav>
     </article>
     <article class="stack stack-200">
@@ -18,7 +21,7 @@
         Publicaciones
       </h3>
       <nav>
-        <nuxt-link to="/publicaciones">
+        <nuxt-link to="/publicaciones" class="link">
           Listado
         </nuxt-link>
       </nav>
@@ -28,14 +31,11 @@
         Suscripciones
       </h3>
       <nav>
-        <nuxt-link to="/suscripciones">
+        <nuxt-link to="/suscripciones" class="link">
           Listado
         </nuxt-link>
       </nav>
     </article>
-    <button class="button button-error full-width" @click="logout">
-      Cerrar Sesion
-    </button>
   </main>
 </template>
 
