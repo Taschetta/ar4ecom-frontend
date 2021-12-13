@@ -1,10 +1,10 @@
 <template>
-  <main class="stack stack-500">
+  <main class="stack stack-400">
     <h2 class="card text-500 text-center">
       Bienvenido a ar4ecom!
     </h2>
-    <article class="card">
-      <h3 class="text-500">
+    <article class="card stack stack-200">
+      <h3 class="text-400">
         Mis datos
       </h3>
       <nav>
@@ -13,6 +13,9 @@
         </nuxt-link>
       </nav>
     </article>
+    <button class="button button-error full-width">
+      Cerrar Sesion
+    </button>
   </main>
 </template>
 

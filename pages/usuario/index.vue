@@ -1,6 +1,6 @@
 <template>
-  <main class="card">
-    <h2 class="text-500 text-center">
+  <main class="card stack stack-500">
+    <h2 class="text-500">
       Mis datos
     </h2>
     <form id="Form" class="form" @submit.prevent="submit">
@@ -11,9 +11,12 @@
       <label for="InputContraseña">Contraseña</label>
       <input id="InputContraseña" v-model="item.contraseña" type="password">
     </form>
-    <nav class="flex justify-center">
+    <nav class="flex justify-end">
       <button class="button" form="Form">
-        Iniciar Sesión
+        Volver
+      </button>
+      <button class="button" form="Form">
+        Guardar
       </button>
     </nav>
   </main>

@@ -48,6 +48,10 @@ ul, li {
   list-style: none;
 }
 
+a {
+  color: inherit;
+}
+
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }

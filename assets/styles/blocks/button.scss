@@ -5,23 +5,23 @@
   line-height: var(--line-height-100);
   letter-spacing: 1px;
   text-transform: uppercase;
-  
+  font-weight: bold;
   // Spacing
   padding: var(--space-200) var(--space-500);
   
   // Border
   border: none;
-  border-radius: var(--rounded-200);
+  border-radius: var(--rounded-600);
   
   // Colors
   background-color: var(--clr-gray-200);
-  box-shadow: var(--shadow-100);
+  box-shadow: var(--shadow-200);
   
   // Other
   cursor: pointer;
   
   // Transitions
-  transition: background-color 250ms ease, box-shadow 250ms ease;
+  transition: background-color 250ms ease, box-shadow 300ms ease;
   
   
 }
@@ -30,8 +30,18 @@
   background-color: var(--clr-gray-300);
   box-shadow: var(--shadow-200);
 }
+
 .button:focus {
   outline: 3px solid var(--clr-gray-500);
   outline-offset: 3px;
 }
 
+.button-error {
+  background-color: var(--clr-red-300);
+  color: var(--clr-red-900);
+}
+
+.button-error:hover {
+  background-color: var(--clr-red-400);
+  color: var(--clr-red-900);
+}
