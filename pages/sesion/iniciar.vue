@@ -13,7 +13,7 @@
       <button class="button" form="FormLogin">
         Iniciar Sesión
       </button>
-      <nuxt-link to="/sesion/registrar">
+      <nuxt-link to="/usuario/registrar">
         Registrarme
       </nuxt-link>
     </nav>

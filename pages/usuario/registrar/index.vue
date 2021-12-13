@@ -24,7 +24,7 @@ import { useResource, useHandler } from '~/composition/index.js'
 
 export default {
   setup () {
-    const $resource = useResource('/usuarios')
+    const $resource = useResource('/usuario')
     const $handle = useHandler()
     const $router = useRouter()
 
@@ -35,7 +35,7 @@ export default {
     })
 
     const submit = $handle(async () => {
-      await $resource.insertOne(item)
+      await $resource.insert(item)
       $router.push('/sesion/iniciar')
     })
 

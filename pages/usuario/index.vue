@@ -1,0 +1,54 @@
+<template>
+  <main class="card">
+    <h2 class="text-500 text-center">
+      Mis datos
+    </h2>
+    <form id="Form" class="form" @submit.prevent="submit">
+      <label for="InputNombre">Nombre</label>
+      <input id="InputNombre" v-model="item.nombre" type="text">
+      <label for="InputEmail">Email</label>
+      <input id="InputEmail" v-model="item.email" type="email">
+      <label for="InputContraseña">Contraseña</label>
+      <input id="InputContraseña" v-model="item.contraseña" type="password">
+    </form>
+    <nav class="flex justify-center">
+      <button class="button" form="Form">
+        Iniciar Sesión
+      </button>
+    </nav>
+  </main>
+</template>
+
+<script>
+/* eslint-disable */
+import { useResource, useHandler, useSesion } from '~/composition/index.js'
+export default {
+  setup () {
+    const $resource = useResource('/usuario')
+    const $handle = useHandler()
+    const $router = useRouter()
+    const $sesion = useSesion()
+
+    let item = ref({
+      nombre: '',
+      email: '',
+      contraseña: '',
+    })
+
+    const submit = $handle(async () => {
+      await $resource.update(item.value)
+      $router.back()
+    })
+
+    onMounted(async () => {
+      await $sesion.onlyAuthed()
+      item.value = await $resource.find()
+    })
+
+    return {
+      item,
+      submit,
+    }
+  },
+}
+</script>

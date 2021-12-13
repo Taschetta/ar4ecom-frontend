@@ -1,8 +1,18 @@
 <template>
-  <main class="card">
-    <h2 class="text-500 text-center">
+  <main class="stack stack-500">
+    <h2 class="card text-500 text-center">
       Bienvenido a ar4ecom!
     </h2>
+    <article class="card">
+      <h3 class="text-500">
+        Mis datos
+      </h3>
+      <nav>
+        <nuxt-link to="/usuario">
+          Editar
+        </nuxt-link>
+      </nav>
+    </article>
   </main>
 </template>
 
