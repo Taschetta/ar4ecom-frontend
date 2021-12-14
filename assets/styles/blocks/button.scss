@@ -1,11 +1,12 @@
 
 .button {
   // Font
-  font-size: var(--font-size-100);
+  font-size: var(--font-size-50);
   line-height: var(--line-height-100);
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: bold;
+  text-decoration: none;
   // Spacing
   padding: var(--space-200) var(--space-500);
   
@@ -15,33 +16,60 @@
   
   // Colors
   background-color: var(--clr-gray-200);
-  box-shadow: var(--shadow-200);
+  box-shadow: var(--shadow-100);
   
   // Other
   cursor: pointer;
   
   // Transitions
-  transition: background-color 250ms ease, box-shadow 300ms ease;
+  transition: color 300ms ease, box-shadow 300ms ease;
   
   
 }
 
 .button:hover {
-  background-color: var(--clr-gray-300);
   box-shadow: var(--shadow-200);
 }
 
 .button:focus {
   outline: 3px solid var(--clr-gray-500);
-  outline-offset: 3px;
+  outline-offset: var(--space-200);
 }
 
-.button-error {
-  background-color: var(--clr-red-300);
+/* ----- Sizes ----- */
+
+.button[small] {
+  text-transform: none;
+  padding: var(--space-100) var(--space-300);
+}
+
+.button[small]:focus {
+  text-transform: none;
+  outline-width: 1px;
+  padding: var(--space-100) var(--space-300);
+}
+
+/* ----- States ----- */
+
+/* --- Disabled --- */
+
+.button[disabled] {
+  background-color: var(--clr-gray-200);
+  color: var(--clr-gray-500);
+  box-shadow: var(--shadow-100);
+  cursor: initial;
+}
+
+/* --- Error --- */
+
+.button[error] {
+  background-color: var(--clr-red-200);
   color: var(--clr-red-900);
 }
 
-.button-error:hover {
-  background-color: var(--clr-red-400);
-  color: var(--clr-red-900);
+/* --- Success --- */
+
+.button[success] {
+  background-color: var(--clr-green-100);
+  color: var(--clr-green-900);
 }

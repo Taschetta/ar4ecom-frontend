@@ -1,5 +1,5 @@
 <template>
-  <main class="card center stack stack-500">
+  <main class="card center stack">
     <h2 class="text-500 text-center">
       Bienvenido a ar4ecom!
     </h2>
@@ -49,7 +49,7 @@ export default {
 
     const logout = $handle(async () => {
       await $sesion.logout()
-      $router.push('')
+      $router.push('/sesion/iniciar')
     })
 
     onMounted(async () => {

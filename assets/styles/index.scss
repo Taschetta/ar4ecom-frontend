@@ -22,6 +22,8 @@ body {
 @import './utilities/stack.scss';
 @import './utilities/text.scss';
 @import './utilities/size.scss';
+@import './utilities/scroll.scss';
+@import './utilities/hide.scss';
 
 // Design Tokens
 @import './tokens/text.scss';
@@ -32,3 +34,4 @@ body {
 @import './blocks/card.scss';
 @import './blocks/form.scss';
 @import './blocks/link.scss';
+@import './blocks/table.scss';

@@ -1,0 +1,8 @@
+
+.scroll-x {
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}

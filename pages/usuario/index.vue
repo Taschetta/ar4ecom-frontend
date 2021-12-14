@@ -1,5 +1,5 @@
 <template>
-  <main class="card stack stack-500">
+  <main class="card stack">
     <h2 class="text-500">
       Mis datos
     </h2>
@@ -23,7 +23,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import { useResource, useHandler, useSesion } from '~/composition/index.js'
 export default {
   setup () {

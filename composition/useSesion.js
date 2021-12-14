@@ -11,6 +11,8 @@ export const useSesion = () => {
   const $fetch = useRequest()
   const $router = useRouter()
 
+  const usuario = computed(() => state.usuario)
+
   const refresh = async () => {
     const token = localStorage.getItem('token')
 
@@ -64,6 +66,7 @@ export const useSesion = () => {
   }
 
   return {
+    usuario,
     login,
     logout,
     onlyAuthed,
