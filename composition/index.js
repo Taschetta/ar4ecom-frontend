@@ -1,3 +1,4 @@
+export { useFile } from './useFile.js'
 export { useRequest } from './useRequest.js'
 export { useHandler } from './useHandler.js'
 export { useNotification } from './useNotification.js'

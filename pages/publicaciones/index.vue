@@ -4,7 +4,7 @@
       Publicaciones
     </h2>
     <TableBase
-      :columns="['Título', 'Descripcion', 'Publicador', 'Privada', 'Ultima versión']"
+      :columns="['Visibilidad', 'Título', 'Descripcion', 'Ultima modificación']"
       :length="items.length"
     >
       <TableRow
@@ -12,14 +12,13 @@
         :value="item.id"
         :selected.sync="selectedId"
       >
-        <td>{{ item.titulo }}</td>
-        <td>{{ item.descripcion }}</td>
-        <td>{{ item.usuario }}</td>
         <td>
           <button class="button" :success="!item.privado" :error="!!item.privado" small @click.stop="toggle('privado', item)">
-            {{ item.privado ? 'SI' : 'NO' }}
+            {{ item.privado ? 'Privado' : 'Público' }}
           </button>
         </td>
+        <td>{{ item.titulo }}</td>
+        <td>{{ item.descripcion }}</td>
         <td>
           {{ (new Date(item.fechaActualizado)).toLocaleString() }}
         </td>
@@ -82,7 +81,7 @@ export default {
 
     const toggle = $handle(async (field, item) => {
       checkWrite(item)
-      await $resources.updateOne({ id: item.id, [field]: !item[field] })
+      await $resources.updateOne(item.id, { [field]: !item[field] })
       await loadItems()
     })
 

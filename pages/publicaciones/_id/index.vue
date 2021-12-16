@@ -3,27 +3,28 @@
     <h2 class="text-500">
       Publicación
     </h2>
-    <form id="Form" class="form" @submit.prevent="submit" :disabled="!canWrite">
-      <label for="InputPrivado">Privado</label>
-      <input id="InputPrivado" v-model="item.privado" type="checkbox" :disabled="!canWrite">
+    <form id="Form" class="form" @submit.prevent="submit">
+      <FieldFile id="InputPrePublicacion" label="Archivo con características" name="prePublicacion" @input="loadFile" :required="!id" />
 
       <label for="InputTitulo">Titulo</label>
-      <input id="InputTitulo" v-model="item.titulo" type="text" :disabled="!canWrite">
+      <input id="InputTitulo" v-model="item.titulo" type="text" name="titulo" required>
 
       <label for="InputDescripcion">Descripcion</label>
-      <textarea id="InputDescripcion" v-model="item.descripcion" type="text" :disabled="!canWrite" />
+      <textarea id="InputDescripcion" v-model="item.descripcion" type="text" name="descripcion" required />
 
       <label for="InputEtiquetas">Etiquetas</label>
-      <input id="InputEtiquetas" v-model="item.etiquetas" type="text" :disabled="!canWrite">
+      <input id="InputEtiquetas" v-model="item.etiquetas" type="text" name="etiquetas" required>
 
-      <label for="InputPrePublicacion">PrePublicacion</label>
-      <textarea id="InputPrePublicacion" v-model="item.prePublicacion" type="text" :disabled="!canWrite" />
+      <FieldFile id="InputAssetAndroid" label="Archivo asset Android" name="bundleAndroid" :required="!id" />
+      <FieldFile id="InputAssetIOS" label="Archivo asset IOS" name="bundleIOS" :required="!id" />
+
+      <FieldImage id="inputImagenes" label="Imagenes" name="imagenes" />
     </form>
     <nav class="flex justify-end">
       <button class="button" @click="cancel">
         Cancelar
       </button>
-      <button form="Form" class="button" :disabled="!canWrite">
+      <button form="Form" class="button">
         Guardar
       </button>
     </nav>
@@ -31,7 +32,8 @@
 </template>
 
 <script>
-import { useResources, useHandler, useSesion } from '~/composition/index.js'
+/* eslint-disable */
+import { useResources, useHandler, useSesion, useFile } from '~/composition/index.js'
 export default {
   setup () {
     // Composables
@@ -41,6 +43,7 @@ export default {
     const $route = useRoute()
     const $router = useRouter()
     const $sesion = useSesion()
+    const $file = useFile()
 
     // Data
 
@@ -60,11 +63,13 @@ export default {
 
     // Actions
 
-    const submit = $handle(async () => {
+    const submit = $handle(async (event) => {
+      const formData = new FormData(event.target)
+      console.log(formData)
       if (id.value) {
-        await $publicaciones.updateOne(item.value)
+        await $publicaciones.updateOne(id.value, formData)
       } else {
-        await $publicaciones.insertOne(item.value)
+        await $publicaciones.insertOne(formData)
       }
       $router.back()
     })
@@ -79,6 +84,13 @@ export default {
       item.value = await $publicaciones.findOne(id.value)
     })
 
+    const loadFile = $handle(async (files) => {
+      const data = await $file.asJSON(files[0])
+      item.value.titulo = data.titulo
+      item.value.descripcion = data.descripcion
+      item.value.prePublicacion = data
+    })
+
     // Lifecycle hooks
 
     onMounted(async () => {
@@ -87,10 +99,12 @@ export default {
     })
 
     return {
+      id,
       item,
       canWrite,
       cancel,
       submit,
+      loadFile,
     }
   },
 }

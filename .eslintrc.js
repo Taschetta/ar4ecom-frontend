@@ -21,9 +21,10 @@ module.exports = {
     'quote-props': 'off',
     'no-undef': 'off',
     'comma-dangle': ['error', 'always-multiline'],
+    'dot-notation': 'off',
     'vue/max-attributes-per-line': ['error', {
       singleline: {
-        max: 5,
+        max: 10,
       },
       multiline: {
         max: 2,

@@ -13,7 +13,7 @@ export const useResources = (route) => {
     insertOne: (item = {}) => {
       return post(route, { body: item })
     },
-    updateOne: ({ id, ...update } = {}) => {
+    updateOne: (id, update = {}) => {
       return patch(`${route}/${id}`, { body: update })
     },
     removeOne: ({ id, ...query } = {}) => {
