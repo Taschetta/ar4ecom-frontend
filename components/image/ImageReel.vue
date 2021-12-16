@@ -1,7 +1,7 @@
 <template>
   <div class="image-container scroll-x shadow-200">
     <div v-for="(image, index) in images" class="image relative" :key="image">
-      <button class="material-icons" @click.prevent="remove(index)">
+      <button v-if="editable" class="material-icons" @click.prevent="remove(index)">
         close
       </button>
       <img :src="image" width="500" height="500">
@@ -15,6 +15,10 @@ export default {
     images: {
       type: Array,
       default: () => [],
+    },
+    editable: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {
@@ -50,6 +54,7 @@ export default {
   }
 
   img {
+    aspect-ratio: 1;
     border-radius: 10px;
     box-shadow: var(--shadow-200);
     min-width: 200px;

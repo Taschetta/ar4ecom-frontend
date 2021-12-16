@@ -24,6 +24,7 @@
           Imagenes guardadas
         </label>
         <ImageReel
+          editable
           :images="item.imagenes"
           @remove="removeImagen"
         />
