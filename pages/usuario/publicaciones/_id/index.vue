@@ -19,6 +19,15 @@
       <FieldFile id="InputAssetIOS" label="Archivo asset IOS" name="bundleIOS" :required="!id" />
 
       <FieldImage id="inputImagenes" label="Imagenes" name="imagenes" />
+      <div v-if="item.imagenes && item.imagenes.length">
+        <label>
+          Imagenes guardadas
+        </label>
+        <ImageReel
+          :images="item.imagenes"
+          @remove="removeImagen"
+        />
+      </div>
     </form>
     <nav class="flex justify-end">
       <button class="button" @click="cancel">
@@ -38,7 +47,7 @@ export default {
   setup () {
     // Composables
 
-    const $publicaciones = useResources('/publicaciones')
+    const $publicaciones = useResources('/usuario/publicaciones')
     const $handle = useHandler()
     const $route = useRoute()
     const $router = useRouter()
@@ -65,7 +74,13 @@ export default {
 
     const submit = $handle(async (event) => {
       const formData = new FormData(event.target)
-      console.log(formData)
+      
+      if(item.value.imagenes) {
+        item.value.imagenes.forEach((image, index) => {
+          formData.append(`imagenesGuardadas[${index}]`, image)
+        })
+      }
+      
       if (id.value) {
         await $publicaciones.updateOne(id.value, formData)
       } else {
@@ -77,6 +92,10 @@ export default {
     const cancel = $handle(() => {
       $router.back()
     })
+
+    const removeImagen = (index) => {
+      item.value.imagenes.splice(index, 1)
+    }
 
     // Data loading
 
@@ -104,6 +123,7 @@ export default {
       canWrite,
       cancel,
       submit,
+      removeImagen,
       loadFile,
     }
   },

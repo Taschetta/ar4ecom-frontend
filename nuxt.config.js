@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   target: 'static',
 
   bridge: true,
+  vite: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -20,6 +21,7 @@ export default defineNuxtConfig({
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap' },
     ],
   },
 

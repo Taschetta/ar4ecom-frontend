@@ -20,7 +20,7 @@
         <td>{{ item.titulo }}</td>
         <td>{{ item.descripcion }}</td>
         <td>
-          {{ (new Date(item.fechaActualizado)).toLocaleString() }}
+          {{ (new Date(item.fechaActualizado)).toLocaleDateString() }}
         </td>
       </TableRow>
     </TableBase>
@@ -44,7 +44,7 @@ export default {
   setup () {
     // Composables
 
-    const $resources = useResources('/publicaciones')
+    const $resources = useResources('/usuario/publicaciones')
     const $handle = useHandler()
     const $sesion = useSesion()
 
