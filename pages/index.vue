@@ -19,7 +19,7 @@
         </button>
       </nav>
     </article>
-    <!-- <article class="stack stack-200">
+    <article class="stack stack-200">
       <h3 class="text-400">
         Publicaciones
       </h3>
@@ -29,16 +29,6 @@
         </nuxt-link>
       </nav>
     </article>
-    <article class="stack stack-200">
-      <h3 class="text-400">
-        Suscripciones
-      </h3>
-      <nav>
-        <nuxt-link to="/suscripciones" class="link">
-          Listado
-        </nuxt-link>
-      </nav>
-    </article> -->
   </main>
 </template>
 
