@@ -1,5 +1,5 @@
 <template>
-  <main class="card stack">
+  <main class="card center stack">
     <h2 class="text-500">
       Mis datos
     </h2>

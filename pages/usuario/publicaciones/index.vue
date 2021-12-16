@@ -1,5 +1,5 @@
 <template>
-  <main class="card center stack">
+  <main class="card center stack" size="max-content">
     <h2 class="text-500">
       Mis Publicaciones
     </h2>
@@ -25,10 +25,10 @@
       </TableRow>
     </TableBase>
     <nav class="flex justify-end">
-      <nuxt-link class="button" to="/publicaciones/0">
+      <nuxt-link class="button" to="/usuario/publicaciones/0">
         Nueva
       </nuxt-link>
-      <nuxt-link class="button" :to="`/publicaciones/${selectedId}`" :disabled="!canRead">
+      <nuxt-link class="button" :to="`/usuario/publicaciones/${selectedId}`" :disabled="!canRead">
         Ver
       </nuxt-link>
       <button class="button" @click="remove" :disabled="!canWrite">

@@ -1,5 +1,5 @@
 <template>
-  <main class="card center stack">
+  <main class="card center stack" size="small">
     <h2 class="text-500 text-center">
       Iniciar Sesión
     </h2>

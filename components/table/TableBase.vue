@@ -1,5 +1,5 @@
 <template>
-  <div class="table-container scroll-x">
+  <div class="table-container">
     <table class="table interactive">
       <thead>
         <tr>
