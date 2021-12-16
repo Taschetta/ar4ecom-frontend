@@ -1,5 +1,5 @@
 <template>
-  <article class="notification card card-small" @click="remove(id)">
+  <article class="notification card" @click="remove(id)" error :type="type">
     <p>{{ message }}</p>
   </article>
 </template>
@@ -15,6 +15,10 @@ export default {
     message: {
       type: String,
       required: true,
+    },
+    type: {
+      type: String,
+      default: undefined,
     },
   },
   setup () {

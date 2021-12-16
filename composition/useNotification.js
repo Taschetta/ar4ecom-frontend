@@ -21,9 +21,9 @@ export const useNotification = () => {
     return state.items.findIndex(item => item.id === id)
   }
 
-  const insert = ({ message } = {}) => {
+  const insert = ({ message, type } = {}) => {
     const id = last.value?.id + 1 || 1
-    state.items.push({ id, message })
+    state.items.push({ id, message, type })
     setTimeout(() => remove(id), state.duration)
   }
 

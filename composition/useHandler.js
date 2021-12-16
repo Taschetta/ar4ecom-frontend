@@ -8,7 +8,7 @@ export const useHandler = () => {
     try {
       return await callback(...args)
     } catch (error) {
-      $notification.insert({ message: error.message })
+      $notification.insert({ message: error.message, type: 'error' })
     }
   }
 }
