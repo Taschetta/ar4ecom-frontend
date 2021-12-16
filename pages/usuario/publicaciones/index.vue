@@ -1,7 +1,7 @@
 <template>
   <main class="card center stack">
     <h2 class="text-500">
-      Publicaciones
+      Mis Publicaciones
     </h2>
     <TableBase
       :columns="['Visibilidad', 'Título', 'Descripcion', 'Ultima modificación']"

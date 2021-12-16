@@ -9,14 +9,17 @@
       </h3>
       <nav>
         <nuxt-link to="/usuario" class="link">
-          Editar
+          Mis datos
+        </nuxt-link>
+        <nuxt-link to="/usuario/publicaciones" class="link">
+          Mis Publicaciones
         </nuxt-link>
         <button to="/usuario" class="link" @click="logout">
           Cerrar sesión
         </button>
       </nav>
     </article>
-    <article class="stack stack-200">
+    <!-- <article class="stack stack-200">
       <h3 class="text-400">
         Publicaciones
       </h3>
@@ -35,7 +38,7 @@
           Listado
         </nuxt-link>
       </nav>
-    </article>
+    </article> -->
   </main>
 </template>
 
