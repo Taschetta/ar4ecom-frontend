@@ -4,11 +4,14 @@
   dt {
     font-size: var(--font-size-300);
     line-height: var(--line-height-300);
-    font-weight: bold;
   }
 
-  dd {
-    padding-inline: var(--space-300)
+  > * + dt {
+    margin-top: var(--space-400);
   }
-  
+
+  > * + dd {
+    margin-top: var(--space-100);
+  }
+
 }

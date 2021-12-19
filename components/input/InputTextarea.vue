@@ -4,7 +4,7 @@
     v-model="localValue"
     :required="required"
     :name="name"
-    rows="8"
+    rows="4"
   />
 </template>
 
@@ -30,13 +30,13 @@ export default {
   },
   computed: {
     localValue: {
-      get() {
+      get () {
         return this.value
       },
-      set(value) {
+      set (value) {
         this.$emit('input', value)
-      }
+      },
     },
-  }
+  },
 }
 </script>

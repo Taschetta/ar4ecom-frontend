@@ -14,7 +14,7 @@
       >
         <td>{{ item.titulo }}</td>
         <td>{{ item.descripcion }}</td>
-        <td>{{ item.usuario }}</td>
+        <td>{{ item.usuario.nombre }}</td>
         <td>
           {{ (new Date(item.fechaActualizado)).toLocaleDateString() }}
         </td>

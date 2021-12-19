@@ -5,28 +5,28 @@
     </h2>
     <article class="stack stack-200">
       <h3 class="text-400">
+        Publicaciones
+      </h3>
+      <nav>
+        <nuxt-link to="/publicaciones" class="link">
+          Todas las publicaciones
+        </nuxt-link>
+        <nuxt-link to="/usuario/publicaciones" class="link">
+          Mis Publicaciones
+        </nuxt-link>
+      </nav>
+    </article>
+    <article class="stack stack-200">
+      <h3 class="text-400">
         Mis perfil
       </h3>
       <nav>
         <nuxt-link to="/usuario" class="link">
           Mis datos
         </nuxt-link>
-        <nuxt-link to="/usuario/publicaciones" class="link">
-          Mis Publicaciones
-        </nuxt-link>
         <button to="/usuario" class="link" @click="logout">
           Cerrar sesión
         </button>
-      </nav>
-    </article>
-    <article class="stack stack-200">
-      <h3 class="text-400">
-        Publicaciones
-      </h3>
-      <nav>
-        <nuxt-link to="/publicaciones" class="link">
-          Listado
-        </nuxt-link>
       </nav>
     </article>
   </main>

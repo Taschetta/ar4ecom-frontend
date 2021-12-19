@@ -7,9 +7,9 @@
       <h3 class="hide-visually">
         Datos de la publicacion
       </h3>
-      <dl class="[ definition-list ][ stack stack-300 ]">
+      <dl class="[ definition-list ]">
         <dt>Publicador</dt>
-        <dd>{{ item.usuario }}</dd>
+        <dd>{{ item.usuario.nombre }}</dd>
         <dt>Etiquetas</dt>
         <dd>{{ item.etiquetas }}</dd>
         <dt>Descripción</dt>
@@ -57,9 +57,13 @@ import { useSesion, useResources, useHandler } from '~/composition/index.js'
 export default {
   setup () {
 
+    // Resources
+
+    const $publicaciones = useResources('/publicaciones')
+    const $suscripciones = useResources('/usuario/suscripciones')
+
     // Composables
 
-    const $resources = useResources('/publicaciones')
     const $handle = useHandler()
     const $sesion = useSesion()
     const $router = useRouter()
@@ -71,7 +75,9 @@ export default {
 
     // Data: Reactive
 
-    const item = ref({})
+    const item = ref({
+      usuario: {},
+    })
 
     // Data: Computed
 
@@ -85,14 +91,15 @@ export default {
       $router.back()
     }
 
-    const suscribe = () => {
-
-    }
+    const suscribe = $handle(async () => {
+      const suscripcion = await $suscripciones.insertOne({ fkPublicacion: id })
+      await $router.push(`/usuario/suscripciones/${suscripcion.id}`)
+    })
 
     // Data: Loading
 
     const loadItem = $handle(async () => {
-      item.value = await $resources.findOne(id)
+      item.value = await $publicaciones.findOne(id)
     })
 
     // Lifecycle
