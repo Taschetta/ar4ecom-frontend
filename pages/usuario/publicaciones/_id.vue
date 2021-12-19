@@ -75,6 +75,12 @@ export default {
 
     const submit = $handle(async (event) => {
       const formData = new FormData(event.target)
+
+      formData.delete('etiquetas')
+
+      item.value.etiquetas.replace(/,\ /g, ',').split(',').map((etiqueta, index) => {
+        formData.append(`etiquetas[${index}]`, etiqueta)
+      })
       
       if(item.value.imagenes) {
         item.value.imagenes.forEach((image, index) => {
@@ -102,12 +108,14 @@ export default {
 
     const loadItem = $handle(async () => {
       item.value = await $publicaciones.findOne(id.value)
+      item.value.etiquetas = item.value.etiquetas.join(', ')
     })
 
     const loadFile = $handle(async (files) => {
       const data = await $file.asJSON(files[0])
       item.value.titulo = data.titulo
       item.value.descripcion = data.descripcion
+      item.value.etiquetas = data.etiquetas.join(', ')
       item.value.prePublicacion = data
     })
 
