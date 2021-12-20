@@ -19,13 +19,13 @@
       <FieldFile id="InputAssetIOS" label="Archivo asset IOS" name="bundleIOS" :required="!id" />
 
       <FieldImage id="inputImagenes" label="Imagenes" name="imagenes" />
-      <div v-if="item.imagenes && item.imagenes.length">
+      <div v-if="item.imagenesGuardadas && item.imagenesGuardadas.length">
         <label>
           Imagenes guardadas
         </label>
         <ImageReel
           editable
-          :images="item.imagenes"
+          :images="item.imagenesGuardadas"
           @remove="removeImagen"
         />
       </div>
@@ -42,7 +42,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import { useResources, useHandler, useSesion, useFile } from '~/composition/index.js'
 export default {
   setup () {
@@ -78,16 +77,16 @@ export default {
 
       formData.delete('etiquetas')
 
-      item.value.etiquetas.replace(/,\ /g, ',').split(',').map((etiqueta, index) => {
+      item.value.etiquetas.replace(/, /g, ',').split(',').forEach((etiqueta, index) => {
         formData.append(`etiquetas[${index}]`, etiqueta)
       })
-      
-      if(item.value.imagenes) {
-        item.value.imagenes.forEach((image, index) => {
+
+      if (item.value.imagenesGuardadas) {
+        item.value.imagenesGuardadas.forEach((image, index) => {
           formData.append(`imagenesGuardadas[${index}]`, image)
         })
       }
-      
+
       if (id.value) {
         await $publicaciones.updateOne(id.value, formData)
       } else {
@@ -101,7 +100,7 @@ export default {
     })
 
     const removeImagen = (index) => {
-      item.value.imagenes.splice(index, 1)
+      item.value.imagenesGuardadas.splice(index, 1)
     }
 
     // Data loading

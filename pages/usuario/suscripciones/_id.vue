@@ -13,7 +13,7 @@
         <dt>Publicador</dt>
         <dd>{{ item.publicacion.usuario.nombre }}</dd>
         <dt>Etiquetas</dt>
-        <dd>{{ item.publicacion.etiquetas }}</dd>
+        <dd>{{ item.publicacion.etiquetas.join(', ') }}</dd>
         <dt>Descripción</dt>
         <dd>{{ item.publicacion.descripcion }}</dd>
       </dl>
@@ -76,6 +76,7 @@ export default {
     const item = ref({
       publicacion: {
         usuario: {},
+        etiquetas: [],
       },
     })
 

@@ -11,7 +11,7 @@
         <dt>Publicador</dt>
         <dd>{{ item.usuario.nombre }}</dd>
         <dt>Etiquetas</dt>
-        <dd>{{ item.etiquetas }}</dd>
+        <dd>{{ item.etiquetas.join(', ') }}</dd>
         <dt>Descripción</dt>
         <dd>{{ item.descripcion }}</dd>
         <dt>Imagenes</dt>
@@ -77,6 +77,7 @@ export default {
 
     const item = ref({
       usuario: {},
+      etiquetas: [],
     })
 
     // Data: Computed

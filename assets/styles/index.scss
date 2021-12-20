@@ -16,6 +16,20 @@ body {
   color: var(--clr-gray-800);
 }
 
+
+label, input, textarea, select {
+  display: block;
+  width: 100%;
+}
+
+input, textarea, select {
+  padding-left: var(--space-100);
+}
+
+textarea {
+  scrollbar-width: thin;
+}
+
 // Utilities
 @import './utilities/center.scss';
 @import './utilities/flex.scss';
