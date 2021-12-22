@@ -81,7 +81,7 @@ export default {
 
     const toggle = $handle(async (field, item) => {
       checkWrite(item)
-      await $resources.updateOne(item.id, { [field]: !item[field] })
+      await $resources.updateOne(item.id, { ...item, [field]: !item[field] })
       await loadItems()
     })
 
