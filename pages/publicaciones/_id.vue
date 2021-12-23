@@ -94,7 +94,7 @@ export default {
 
     const suscribe = $handle(async () => {
       const suscripcion = await $suscripciones.insertOne({ fkPublicacion: id })
-      await $router.push(`/usuario/suscripciones/${suscripcion.id}`)
+      await $router.push(`/usuario/suscripciones/${suscripcion.id}?to=/usuario/suscripciones`)
     })
 
     // Data: Loading

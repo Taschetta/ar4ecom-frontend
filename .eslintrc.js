@@ -23,6 +23,8 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
     'dot-notation': 'off',
     'padded-blocks': 'off',
+    'node/no-callback-literal': 'off',
+    'arrow-parens': 'off',
     'vue/max-attributes-per-line': ['error', {
       singleline: {
         max: 10,

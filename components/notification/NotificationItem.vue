@@ -34,7 +34,7 @@ export default {
 
 .notification {
   // Size
-  max-width: 40ch;
+  width: 30ch;
   max-height: 80vh;
   overflow-y: auto;
   // Other

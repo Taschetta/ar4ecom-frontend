@@ -42,13 +42,14 @@
 </template>
 
 <script>
-import { useResources, useHandler, useSesion, useFile } from '~/composition/index.js'
+import { useResources, useHandler, useSesion, useFile, useSaving } from '~/composition/index.js'
 export default {
   setup () {
     // Composables
 
     const $publicaciones = useResources('/usuario/publicaciones')
     const $handle = useHandler()
+    const $saving = useSaving()
     const $route = useRoute()
     const $router = useRouter()
     const $sesion = useSesion()
@@ -72,7 +73,7 @@ export default {
 
     // Actions
 
-    const submit = $handle(async (event) => {
+    const submit = $handle($saving(async (event) => {
       const formData = new FormData(event.target)
 
       formData.delete('etiquetas')
@@ -93,7 +94,7 @@ export default {
         await $publicaciones.insertOne(formData)
       }
       $router.back()
-    })
+    }))
 
     const cancel = $handle(() => {
       $router.back()

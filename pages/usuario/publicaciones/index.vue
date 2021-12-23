@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { useSesion, useResources, useHandler } from '~/composition/index.js'
+import { useSesion, useResources, useHandler, useSaving } from '~/composition/index.js'
 export default {
   setup () {
     // Composables
@@ -47,6 +47,7 @@ export default {
     const $resources = useResources('/usuario/publicaciones')
     const $handle = useHandler()
     const $sesion = useSesion()
+    const $saving = useSaving()
 
     // Data
 
@@ -79,17 +80,17 @@ export default {
 
     // Actions
 
-    const toggle = $handle(async (field, item) => {
+    const toggle = $handle($saving(async (field, item) => {
       checkWrite(item)
       await $resources.updateOne(item.id, { ...item, [field]: !item[field] })
       await loadItems()
-    })
+    }))
 
-    const remove = $handle(async () => {
+    const remove = $handle($saving(async () => {
       checkWrite()
       await $resources.removeOne({ id: selected.value.id })
       await loadItems()
-    })
+    }))
 
     // Data loading
 

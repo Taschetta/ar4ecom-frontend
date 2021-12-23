@@ -23,11 +23,12 @@
 </template>
 
 <script>
-import { useResource, useHandler, useSesion } from '~/composition/index.js'
+import { useResource, useHandler, useSesion, useSaving } from '~/composition/index.js'
 export default {
   setup () {
     const $resource = useResource('/usuario')
     const $handle = useHandler()
+    const $saving = useSaving()
     const $router = useRouter()
     const $sesion = useSesion()
 
@@ -37,10 +38,10 @@ export default {
       contraseña: '',
     })
 
-    const submit = $handle(async () => {
+    const submit = $handle($saving(async () => {
       await $resource.update(item.value)
       $router.back()
-    })
+    }))
 
     onMounted(async () => {
       await $sesion.onlyAuthed()

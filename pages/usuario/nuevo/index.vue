@@ -20,13 +20,14 @@
 </template>
 
 <script>
-import { useResource, useHandler } from '~/composition/index.js'
+import { useResource, useHandler, useSaving } from '~/composition/index.js'
 
 export default {
   setup () {
     const $resource = useResource('/usuario')
     const $handle = useHandler()
     const $router = useRouter()
+    const $saving = useSaving()
 
     const item = reactive({
       nombre: '',
@@ -34,10 +35,10 @@ export default {
       contraseña: '',
     })
 
-    const submit = $handle(async () => {
+    const submit = $handle($saving(async () => {
       await $resource.insert(item)
       $router.push('/sesion/iniciar')
-    })
+    }))
 
     return {
       item,

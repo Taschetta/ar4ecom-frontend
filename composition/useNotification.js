@@ -21,10 +21,18 @@ export const useNotification = () => {
     return state.items.findIndex(item => item.id === id)
   }
 
-  const insert = ({ message, type } = {}) => {
+  const insert = ({ message, type, duration = state.duration } = {}) => {
     const id = last.value?.id + 1 || 1
+
     state.items.push({ id, message, type })
-    setTimeout(() => remove(id), state.duration)
+
+    // if a duration is set or is the default value set a timeout to remove it
+    // if duration is set to a falsy value, dont remove it
+    if (duration) {
+      setTimeout(() => remove(id), duration)
+    }
+
+    return id
   }
 
   const remove = (id) => {

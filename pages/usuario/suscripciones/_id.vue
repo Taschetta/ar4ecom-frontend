@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { useSesion, useResources, useHandler } from '~/composition/index.js'
+import { useSesion, useResources, useHandler, useSaving } from '~/composition/index.js'
 export default {
   setup () {
     // Resources
@@ -66,12 +66,15 @@ export default {
     // Composables
     const $sesion = useSesion()
     const $handle = useHandler()
+    const $saving = useSaving()
     const $router = useRouter()
     const $route = useRoute()
 
     // Data
     // - static
     const id = parseInt($route.params.id)
+    const to = $route.query.to
+
     // - reactive
     const item = ref({
       publicacion: {
@@ -82,12 +85,22 @@ export default {
 
     // Actions
 
-    const submit = $handle(async () => {
+    const submit = $handle($saving(async () => {
       await $suscripciones.updateOne(id, item.value)
-      await $router.back()
-    })
+      if (to) {
+        $router.push(to)
+      } else {
+        $router.back()
+      }
+    }))
 
-    const back = () => $router.back()
+    const back = () => {
+      if (to) {
+        $router.push(to)
+      } else {
+        $router.back()
+      }
+    }
 
     const loadItem = $handle(async () => {
       item.value = await $suscripciones.findOne(id)
