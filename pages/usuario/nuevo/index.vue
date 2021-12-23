@@ -1,5 +1,5 @@
 <template>
-  <main class="card">
+  <main class="card center stack" size="small">
     <h2 class="text-500 text-center">
       Registrarme
     </h2>
@@ -11,10 +11,13 @@
       <label for="InputContraseña">Contraseña</label>
       <input id="InputContraseña" v-model="item.contraseña" type="password">
     </form>
-    <nav class="flex justify-center">
+    <nav class="flex flex-column align-center">
       <button class="button" form="Form">
-        Iniciar Sesión
+        Registrarme
       </button>
+      <nuxt-link class="link" to="/sesion/iniciar">
+        Volver
+      </nuxt-link>
     </nav>
   </main>
 </template>

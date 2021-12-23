@@ -41,9 +41,9 @@
         Acciones
       </h3>
       <nav class="flex justify-end">
-        <button class="button" @click="back">
+        <nuxt-link class="button" to="/publicaciones">
           Volver
-        </button>
+        </nuxt-link>
         <button class="button" @click="suscribe">
           Suscribirme
         </button>
@@ -88,13 +88,9 @@ export default {
 
     // Actions
 
-    const back = () => {
-      $router.back()
-    }
-
     const suscribe = $handle(async () => {
       const suscripcion = await $suscripciones.insertOne({ fkPublicacion: id })
-      await $router.push(`/usuario/suscripciones/${suscripcion.id}?to=/usuario/suscripciones`)
+      await $router.push(`/usuario/suscripciones/${suscripcion.id}`)
     })
 
     // Data: Loading
@@ -113,7 +109,6 @@ export default {
     return {
       item,
       secciones,
-      back,
       suscribe,
     }
   },

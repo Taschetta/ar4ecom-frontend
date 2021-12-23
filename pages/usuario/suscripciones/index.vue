@@ -19,6 +19,9 @@
       </TableRow>
     </TableBase>
     <nav class="flex justify-end">
+      <nuxt-link class="button" to="/">
+        Volver
+      </nuxt-link>
       <nuxt-link class="button" :to="`/usuario/suscripciones/${selected}`" :disabled="!selected">
         Modificar
       </nuxt-link>

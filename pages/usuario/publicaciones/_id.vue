@@ -31,9 +31,9 @@
       </div>
     </form>
     <nav class="flex justify-end">
-      <button class="button" @click="cancel">
-        Cancelar
-      </button>
+      <nuxt-link class="button" to="/usuario/publicaciones">
+        Volver
+      </nuxt-link>
       <button form="Form" class="button">
         Guardar
       </button>
@@ -96,10 +96,6 @@ export default {
       $router.back()
     }))
 
-    const cancel = $handle(() => {
-      $router.back()
-    })
-
     const removeImagen = (index) => {
       item.value.imagenesGuardadas.splice(index, 1)
     }
@@ -130,7 +126,6 @@ export default {
       id,
       item,
       canWrite,
-      cancel,
       submit,
       removeImagen,
       loadFile,

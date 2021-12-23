@@ -35,7 +35,11 @@
       </h3>
       <dl class="[ definition-list ][ stack stack-300 ]">
         <dt>Link para compartir</dt>
-        <dt>Código HTML</dt>
+        <dd>
+          <a class="link" :href="`applauncher.roldos.ar4ecom.v1://id?S${item.id}`">
+            applauncher.roldos.ar4ecom.v1://id?S{{ item.id }}
+          </a>
+        </dd>
         <dt>Codigo QR</dt>
         <dd>
           <img
@@ -46,9 +50,9 @@
       </dl>
     </section>
     <nav class="flex justify-end">
-      <button class="button" @click="back">
+      <nuxt-link class="button" to="/usuario/suscripciones">
         Volver
-      </button>
+      </nuxt-link>
       <button class="button" form="MainForm">
         Guardar
       </button>
@@ -73,7 +77,6 @@ export default {
     // Data
     // - static
     const id = parseInt($route.params.id)
-    const to = $route.query.to
 
     // - reactive
     const item = ref({
@@ -94,14 +97,6 @@ export default {
       }
     }))
 
-    const back = () => {
-      if (to) {
-        $router.push(to)
-      } else {
-        $router.back()
-      }
-    }
-
     const loadItem = $handle(async () => {
       item.value = await $suscripciones.findOne(id)
     })
@@ -116,7 +111,6 @@ export default {
     return {
       item,
       submit,
-      back,
     }
   },
 }

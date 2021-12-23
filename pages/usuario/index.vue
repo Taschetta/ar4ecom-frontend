@@ -12,9 +12,9 @@
       <input id="InputContraseña" v-model="item.contraseña" type="password">
     </form>
     <nav class="flex justify-end">
-      <button class="button" form="Form">
+      <nuxt-link class="button" to="/">
         Volver
-      </button>
+      </nuxt-link>
       <button class="button" form="Form">
         Guardar
       </button>
