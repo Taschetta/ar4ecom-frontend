@@ -19,17 +19,17 @@
       <FieldFile id="InputAssetIOS" label="Archivo asset IOS" name="bundleIOS" :required="!id" />
 
       <FieldImage id="inputImagenes" label="Imagenes" name="imagenes" />
-      <div v-if="item.imagenesGuardadas && item.imagenesGuardadas.length">
-        <label>
-          Imagenes guardadas
-        </label>
-        <ImageReel
-          editable
-          :images="item.imagenesGuardadas"
-          @remove="removeImagen"
-        />
-      </div>
     </form>
+    <div v-if="item.imagenesGuardadas && item.imagenesGuardadas.length">
+      <label>
+        Imagenes guardadas
+      </label>
+      <ImageReel
+        editable
+        :images="item.imagenesGuardadas"
+        @remove="removeImagen"
+      />
+    </div>
     <nav class="flex justify-end">
       <nuxt-link class="button" to="/usuario/publicaciones">
         Volver

@@ -27,15 +27,20 @@ export const useSaving = () => {
   })
 
   const handler = (callback) => async (...args) => {
-    if (!saving.value) {
-      saving.value = true
-      await callback(...args)
+    try {
+      if (!saving.value) {
+        saving.value = true
+        await callback(...args)
+        saving.value = false
+      } else {
+        $notification.insert({
+          message: 'Se esta guardando un cambio, por favor esperá a que termine para realizar otro',
+          type: 'error',
+        })
+      }
+    } catch (error) {
       saving.value = false
-    } else {
-      $notification.insert({
-        message: 'Se esta guardando un cambio, por favor esperá a que termine para realizar otro',
-        type: 'error',
-      })
+      throw error
     }
   }
 

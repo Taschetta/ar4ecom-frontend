@@ -90,11 +90,7 @@ export default {
 
     const submit = $handle($saving(async () => {
       await $suscripciones.updateOne(id, item.value)
-      if (to) {
-        $router.push(to)
-      } else {
-        $router.back()
-      }
+      $router.push('/usuario/suscripciones')
     }))
 
     const loadItem = $handle(async () => {

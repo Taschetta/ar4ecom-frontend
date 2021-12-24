@@ -14,8 +14,12 @@
         <dd>{{ item.etiquetas.join(', ') }}</dd>
         <dt>Descripción</dt>
         <dd>{{ item.descripcion }}</dd>
-        <dt>Imagenes</dt>
-        <dd><ImageReel :images="item.imagenes" /></dd>
+        <dt v-if="item.imagenes">
+          Imagenes
+        </dt>
+        <dd v-if="item.imagenes">
+          <ImageReel :images="item.imagenes" />
+        </dd>
         <dt>Codigo QR</dt>
         <dd>
           <img
