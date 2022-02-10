@@ -4,8 +4,8 @@
       Iniciar Sesión
     </h2>
     <form id="FormLogin" class="form" @submit.prevent="submit">
-      <label for="InputNombre">Nombre</label>
-      <input id="InputNombre" v-model="nombre" type="text">
+      <label for="InputEmail">Email</label>
+      <input id="InputEmail" v-model="email" type="text">
       <label for="InputContraseña">Contraseña</label>
       <input id="InputContraseña" v-model="contraseña" type="password">
     </form>
@@ -30,16 +30,16 @@ export default {
     const $router = useRouter()
     const $handle = useHandler()
 
-    const nombre = ref('')
+    const email = ref('')
     const contraseña = ref('')
 
     const submit = $handle(async () => {
-      await $sesion.login({ nombre: nombre.value, contraseña: contraseña.value })
+      await $sesion.login({ email: email.value, contraseña: contraseña.value })
       await $router.push('/')
     })
 
     return {
-      nombre,
+      email,
       contraseña,
       submit,
     }

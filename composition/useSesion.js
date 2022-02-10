@@ -32,8 +32,8 @@ export const useSesion = () => {
     localStorage.setItem('token', refreshToken)
   }
 
-  const login = async ({ nombre, contraseña }) => {
-    const { usuario, accessToken, refreshToken } = await $fetch.post('/sesion', { body: { nombre, contraseña } })
+  const login = async ({ email, contraseña }) => {
+    const { usuario, accessToken, refreshToken } = await $fetch.post('/sesion', { body: { email, contraseña } })
 
     state.usuario = usuario
     state.token = accessToken
