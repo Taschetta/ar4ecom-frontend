@@ -28,7 +28,7 @@
     </article>
     <article class="stack stack-200">
       <h3 class="text-400">
-        Mis perfil
+        Mi perfil
       </h3>
       <nav>
         <nuxt-link to="/usuario" class="link">
