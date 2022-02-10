@@ -15,8 +15,8 @@
       <label for="InputEtiquetas">Etiquetas</label>
       <input id="InputEtiquetas" v-model="item.etiquetas" type="text" name="etiquetas" required>
 
-      <FieldFile id="InputAssetAndroid" label="Archivo asset Android" name="bundleAndroid" :required="!id" />
-      <FieldFile id="InputAssetIOS" label="Archivo asset IOS" name="bundleIOS" :required="!id" />
+      <FieldFile id="InputAssetAndroid" label="Archivo asset Android" name="bundleAndroid" :required="!id && requireFile" @input="requireFile = false" />
+      <FieldFile id="InputAssetIOS" label="Archivo asset IOS" name="bundleIOS" :required="!id && requireFile" @input="requireFile = false" />
 
       <FieldImage id="inputImagenes" label="Imagenes" name="imagenes" />
     </form>
@@ -58,6 +58,8 @@ export default {
     // Data
 
     let item = ref({})
+
+    const requireFile = ref(true)
 
     // Computed
 
@@ -126,6 +128,7 @@ export default {
       id,
       item,
       canWrite,
+      requireFile,
       submit,
       removeImagen,
       loadFile,
