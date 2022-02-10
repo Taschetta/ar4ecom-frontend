@@ -24,7 +24,7 @@
         <dd>
           <img
             class="image"
-            :src="`https://www.codigos-qr.com/qr/php/qr_img.php?d=applauncher.roldos.ar4ecom.v1%3A%2F%2Fid%3FS${item.id}&s=6&e=m`"
+            :src="`https://www.codigos-qr.com/qr/php/qr_img.php?d=applauncher.roldos.ar4ecom.v1%3A%2F%2Fid%3FP${item.id}&s=6&e=m`"
           >
         </dd>
         <!-- <dt>Secciones</dt>
