@@ -42,12 +42,13 @@
 </template>
 
 <script>
-import { useResources, useHandler, useSesion, useFile, useSaving } from '~/composition/index.js'
+import { useResources, useHandler, useSesion, useFile, useSaving, useNotification } from '~/composition/index.js'
 export default {
   setup () {
     // Composables
 
     const $publicaciones = useResources('/usuario/publicaciones')
+    const $notification = useNotification()
     const $handle = useHandler()
     const $saving = useSaving()
     const $route = useRoute()
@@ -75,7 +76,18 @@ export default {
 
     // Actions
 
-    const submit = $handle($saving(async (event) => {
+    const $myHandle = callback => async (...args) => {
+      try {
+        return await callback(...args)
+      } catch (error) {
+        if (error.name === 'RequestError' && error.status === 401) {
+          $notification.insert({ message: 'Se terminó su seción. Por favor, vuelva a loguearse', type: 'error' })
+          $router.push('/sesion/iniciar')
+        }
+      }
+    }
+
+    const submit = $myHandle($saving(async (event) => {
       const formData = new FormData(event.target)
 
       formData.delete('etiquetas')

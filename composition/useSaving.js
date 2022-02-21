@@ -39,7 +39,10 @@ export const useSaving = () => {
         })
       }
     } catch (error) {
-      saving.value = false
+      $notification.remove(state.fkNotification)
+      // $notification.insert({ message: 'Se produjo un error al guardar los datos', type: 'success' })
+      state.fkNotification = 0
+      state.saving = false
       throw error
     }
   }
